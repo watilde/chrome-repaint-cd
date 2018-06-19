@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+body {
+  padding: 0;
+  margin: 0;
+}
+.disc {
+  display: block;
+  width: 250px;
+  height: 250px;
+  font-size: 200px;
+  margin: 0 auto;
+  line-height: 250px;
+}
+</style>
+</head>
+<body>
+  <span class="disc">💿</span>
+  <script>
+    let count = 0
+    const loop = setInterval(() => {
+      const disc = document.querySelector('.disc')
+      const lh = getComputedStyle(disc, null).getPropertyValue('line-height')
+      disc.style.lineHeight = `${Number(lh.replace('px', '')) + 1}px`
+      if (count === 200) clearInterval(loop)
+      count++
+    }, 10)
+  </script>
+</body>
+</html>
